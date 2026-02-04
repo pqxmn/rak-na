@@ -31,6 +31,7 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             max-width: 400px;
             width: 90%;
+            z-index: 10;
         }
 
         .music-link {
@@ -41,6 +42,8 @@
             color: #ff4d6d;
             text-decoration: none;
             font-weight: bold;
+            display: block;
+            margin-top: 10px;
         }
 
         .buttons {
@@ -49,7 +52,6 @@
             align-items: center;
             gap: 15px;
             margin-top: 30px;
-            flex-wrap: wrap;
         }
 
         button {
@@ -64,6 +66,7 @@
         #yesBtn {
             background-color: #ff4d6d;
             color: white;
+            z-index: 1000;
         }
 
         #noBtn {
@@ -88,11 +91,11 @@
 <body>
 
     <div class="container" id="mainCard">
-        <h1>เค้ารักซีน่า🩷</h1>
-        <p>ซีน่ารักเค้าม้ายยย</p>
+        <h1>เค้ารักเตงนะ ❤️</h1>
+        <p>แล้วเตง... รักเค้ามั้ยคะ?</p>
         
         <div class="music-link">
-            <p>เค้าให้:</p>
+            <p>ฟังเพลงนี้แทนความรู้สึกเค้านะ:</p>
             <a href="https://www.youtube.com/watch?v=R96_Bf8OQ1A" target="_blank">🎵 มากกว่าที่รัก - เอมี่ ทสร</a>
         </div>
 
@@ -103,32 +106,32 @@
     </div>
 
     <div id="successMessage" class="success-msg">
-        รักกันรักกันเลยยย🩷🩷
+        เย้! เค้ารักเตงที่สุดในโลกเลย 🥰💖
     </div>
 
     <script>
-        let yesSize = 1.2;
-        let noSize = 1.2;
+        let yesSize = 1;
+        let noSize = 1;
 
         function shrinkNo() {
             // ขยายปุ่มรัก
-            yesSize += 0.5;
+            yesSize += 0.4;
             document.getElementById('yesBtn').style.transform = `scale(${yesSize})`;
             
             // ลดขนาดปุ่มไม่รัก
             noSize -= 0.15;
-            if (noSize < 0.3) noSize = 0.3; // ไม่ให้หายไปจนกดไม่ได้เลย
+            if (noSize < 0.3) noSize = 0.3;
             document.getElementById('noBtn').style.transform = `scale(${noSize})`;
 
             // ถ้าปุ่มรักใหญ่มากจนบังจอ
-            if (yesSize > 5) {
-                document.getElementById('yesBtn').style.position = 'fixed';
-                document.getElementById('yesBtn').style.top = '0';
-                document.getElementById('yesBtn').style.left = '0';
-                document.getElementById('yesBtn').style.width = '100vw';
-                document.getElementById('yesBtn').style.height = '100vh';
-                document.getElementById('yesBtn').style.borderRadius = '0';
-                document.getElementById('yesBtn').style.zIndex = '999';
+            if (yesSize > 6) {
+                const yes = document.getElementById('yesBtn');
+                yes.style.position = 'fixed';
+                yes.style.top = '0';
+                yes.style.left = '0';
+                yes.style.width = '100vw';
+                yes.style.height = '100vh';
+                yes.style.borderRadius = '0';
             }
         }
 
